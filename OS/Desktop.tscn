@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2atipbrord3o"]
+
+[ext_resource type="Script" path="res://OS/Desktop.gd" id="1_wnl6g"]
+[ext_resource type="PackedScene" uid="uid://futasi27kx6a" path="res://OS/AITerminal.tscn" id="2_7maiq"]
+
+[node name="Desktop" type="Node2D"]
+script = ExtResource("1_wnl6g")
+
+[node name="AiTerminal" parent="." instance=ExtResource("2_7maiq")]
+visible = false

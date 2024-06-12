@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdyya70ireul6"]
+
+[ext_resource type="Script" path="res://OS/OS_Apps/EmailEntry.gd" id="1_a2kx6"]
+[ext_resource type="Texture2D" uid="uid://vf42kjiuqf1w" path="res://OS/OS_Icons/Icon_Assets/heart.png" id="2_cghg3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pmmw0"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_p45ry"]
+font_size = 40
+
+[node name="EmailEntry" type="PanelContainer"]
+script = ExtResource("1_a2kx6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ProfilePic" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_cghg3")
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Contact" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Placeholder Contact"
+label_settings = SubResource("LabelSettings_pmmw0")
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Subject" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Placeholder Subject"
+label_settings = SubResource("LabelSettings_p45ry")

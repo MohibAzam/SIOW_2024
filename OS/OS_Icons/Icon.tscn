@@ -1,8 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgxrkgaunc5ow"]
 
-[ext_resource type="Texture2D" uid="uid://iqfrm86bu368" path="res://OS/OS_Icons/Icon_Assets/save_icon.png" id="1_f1vq1"]
 [ext_resource type="Script" path="res://OS/OS_Icons/Icon.gd" id="1_g46xi"]
-[ext_resource type="Script" path="res://OS/OS_Icons/VBoxIcon.gd" id="2_udq4d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_igj84"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ch2b0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8tfda"]
 font_size = 20
@@ -11,40 +13,37 @@ font_color = Color(0, 0, 0, 1)
 [node name="Icon" type="Node2D"]
 script = ExtResource("1_g46xi")
 
-[node name="VBoxIcon" type="VBoxContainer" parent="."]
-layout_direction = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 160.0
-offset_bottom = 240.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.2, 1.2)
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxIcon" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_right = 108.0
+offset_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tooltip_text = "Save your game"
 theme_override_constants/separation = 0
-script = ExtResource("2_udq4d")
 
-[node name="Portion1" type="MarginContainer" parent="VBoxIcon"]
+[node name="Portion1" type="MarginContainer" parent="TextureRect/VBoxIcon"]
 layout_mode = 2
 
-[node name="IconSprite" type="TextureRect" parent="VBoxIcon/Portion1"]
+[node name="Button" type="Button" parent="TextureRect/VBoxIcon/Portion1"]
 layout_mode = 2
-texture = ExtResource("1_f1vq1")
-stretch_mode = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_igj84")
+icon = SubResource("ImageTexture_ch2b0")
+flat = true
 
-[node name="Portion2" type="MarginContainer" parent="VBoxIcon"]
+[node name="Portion2" type="MarginContainer" parent="TextureRect/VBoxIcon"]
 layout_mode = 2
 
-[node name="IconName" type="Label" parent="VBoxIcon/Portion2"]
+[node name="IconName" type="Label" parent="TextureRect/VBoxIcon/Portion2"]
 layout_mode = 2
-text = "Save Label!"
 label_settings = SubResource("LabelSettings_8tfda")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BG" type="TextureRect" parent="VBoxIcon/Portion2"]
+[node name="BG" type="TextureRect" parent="TextureRect/VBoxIcon/Portion2"]
 layout_mode = 2
 stretch_mode = 3

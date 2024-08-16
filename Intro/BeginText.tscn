@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckbyahdwmd8td"]
+
+[ext_resource type="FontFile" uid="uid://cgxko02rgm2lt" path="res://Fonts/Px437_IBM_VGA_9x16.ttf" id="1_p4wv1"]
+
+[node name="BeginText" type="Label"]
+custom_minimum_size = Vector2(1152, 504)
+theme_override_fonts/font = ExtResource("1_p4wv1")
+theme_override_font_sizes/font_size = 20
+text = "Welcome to AI OS! 
+ 
+This is an operating system (Debian derivative) designed for usage by artificial intelligences. We hope for this tool to be used to allow AIs to develop social and working skills comparable to those of humans, as we continue to explore the open research question of AI Sentience. 
+ 
+For further information, please refer to our GitHub page. If you plan to use this OS in your research, be sure to provide an appropriate citation. 
+ 
+Please ensure that your full attention and computer resources are given to this installation tool at this time.
+ 
+Press Enter when you are ready to begin the installation process.
+"
+autowrap_mode = 3

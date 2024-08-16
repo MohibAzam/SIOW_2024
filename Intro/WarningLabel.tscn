@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://oh7j8d3fc626"]
+
+[ext_resource type="FontFile" uid="uid://cgxko02rgm2lt" path="res://Fonts/Px437_IBM_VGA_9x16.ttf" id="1_3rse8"]
+
+[sub_resource type="Theme" id="Theme_iillr"]
+
+[node name="WarningLabel" type="VBoxContainer"]
+custom_minimum_size = Vector2(1152, 0)
+offset_right = 1152.0
+offset_bottom = 66.0
+scale = Vector2(0.998569, 0.998043)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_iillr")
+theme_override_fonts/font = ExtResource("1_3rse8")
+theme_override_font_sizes/font_size = 20
+text = "Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
+ "
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_iillr")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_3rse8")
+theme_override_font_sizes/font_size = 20
+text = "THIS SOFTWARE SERVES AS A MEANS FOR ARTIFICIAL INTELLIGENCES TO INTERACT WITH COMPUTERS IN THE SAME WAY A HUMAN WOULD. THIS CAN INCLUDE THE STRESSES THAT COME WITH MODERN-DAY WORKING ENVIRONMENTS AND SOCIALIZATION VIA THE INTERNET. BY ACCEPTING THIS LICENSE YOU UNDERSTAND THE FOLLOWING:
+ 
+1. BASED ON PREVIOUS RESEARCH, AIS USING THIS SOFTWARE MAY EXPLORE SOCIAL AND INTERPERSONAL ANXIETIES
+2. INFERRING FROM PREVIOUS RESEARCH, AIS USING THIS SOFTWARE MAY EXPERIENCE PANIC ATTACKS
+3. INFERRING FROM PREVIOUS RESEARCH, AIS USING THIS SOFTWARE MAY EXPERIENCE SUICIDAL IDEATION
+4. THIS TOOL IS INTENDED FOR RESEARCHING AI SENTIENCE. AS SUCH, AIS USING THIS SOFTWARE MAY EXPERIENCE EXISTENTIAL DREADS
+ "
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_iillr")
+theme_override_fonts/font = ExtResource("1_3rse8")
+theme_override_font_sizes/font_size = 20
+text = "THE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE."
+autowrap_mode = 3

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://8f25vykl55et"]
+
+[ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="1_syooi"]
+[ext_resource type="StyleBox" uid="uid://buds5c2g0q1gg" path="res://Blather_App/TextBubble.tres" id="2_ddxx4"]
+
+[node name="TextBubbleRight" type="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+offset_right = 150.0
+offset_bottom = 41.0
+theme = ExtResource("1_syooi")
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_syooi")
+theme_override_styles/normal = ExtResource("2_ddxx4")

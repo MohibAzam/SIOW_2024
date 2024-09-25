@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dp1hmkw435560"]
+
+[node name="BlatherApp" type="Window"]
+
+[node name="SplashScreen" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="SplashScreen"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SplashScreen"]
+layout_mode = 2
+
+[node name="Inbox" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Messages" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dn3yugwq0ahwd"]
+
+[ext_resource type="FontFile" uid="uid://d3ilcw8ty32mm" path="res://Fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf" id="1_b1xfe"]
+[ext_resource type="FontFile" uid="uid://b7mit8yr44e8w" path="res://Fonts/IBM_Plex_Sans/IBMPlexSans-Medium.ttf" id="2_oqwd8"]
+
+[resource]
+default_font = ExtResource("2_oqwd8")
+default_font_size = 20
+/colors/FontColor = Color(0, 0, 0, 1)
+/fonts/IBMSans = ExtResource("1_b1xfe")

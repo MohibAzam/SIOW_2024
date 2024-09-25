@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b730t3lm443rl"]
+
+[node name="DoneInstall" type="Node2D"]

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://y55x4kj5t4mo"]
+[gd_scene load_steps=3 format=3 uid="uid://y55x4kj5t4mo"]
 
 [ext_resource type="Script" path="res://main_game.gd" id="1_m2wpx"]
+[ext_resource type="AudioStream" uid="uid://bgxhiqqbqpodn" path="res://music/1-DAY1-INTRO-V1-chordfades.mp3" id="2_vgx71"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_m2wpx")
+
+[node name="StartupNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vgx71")
+bus = &"Cutscenes"

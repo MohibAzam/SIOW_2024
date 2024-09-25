@@ -1,28 +1,82 @@
-[gd_scene load_steps=2 format=3 uid="uid://c50vlx5cgsun4"]
+[gd_scene load_steps=4 format=3 uid="uid://c50vlx5cgsun4"]
+
+[ext_resource type="FontFile" uid="uid://bwxjejlqudywk" path="res://Fonts/Mx437_CL_Stingray_8x16.ttf" id="1_8oitd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_auvfl"]
-bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+bg_color = Color(0.0941176, 0.0941176, 0.188235, 1)
+border_width_left = 24
+border_width_top = 24
+border_width_right = 24
+border_width_bottom = 24
+border_color = Color(0.0941176, 0.0941176, 0.188235, 1)
 shadow_color = Color(0, 0, 0, 1)
-shadow_size = 4
+shadow_size = 8
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljufb"]
+
 [node name="About" type="PopupPanel"]
-size = Vector2i(100, 104)
+size = Vector2i(448, 235)
 visible = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_auvfl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_right = 100.0
-offset_bottom = 104.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 424.0
+offset_bottom = 211.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8oitd")
+text = "Created for the Safe In Our World Mental Health Game Dev Champions 2024 Game Jam"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ljufb")
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8oitd")
+text = "Developed By:"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ljufb")
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8oitd")
+text = "Mohib (Director, Designer, Writer, Programmer)"
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ljufb")
 
 [node name="Label4" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8oitd")
+text = "Sara (Producer, Narrative Designer)"
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ljufb")
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8oitd")
+text = "Peach (Music, Sound Programming)"
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ljufb")
+
+[node name="Label6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_8oitd")
+text = "Kimberly (Art)"

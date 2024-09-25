@@ -1,0 +1,192 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccs6kikesxbv6"]
+
+[ext_resource type="Script" path="res://Intro/account_setup.gd" id="1_42o6h"]
+[ext_resource type="FontFile" uid="uid://cgxko02rgm2lt" path="res://Fonts/Px437_IBM_VGA_9x16.ttf" id="1_k6hru"]
+[ext_resource type="Theme" uid="uid://d0wjiv8ee8ra1" path="res://setup_theme.tres" id="3_oqy37"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_35qqg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r0g25"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d8gc2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lhmy5"]
+
+[node name="AccountSetup" type="Node2D"]
+script = ExtResource("1_42o6h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 1080.0
+offset_bottom = 227.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_k6hru")
+theme_override_font_sizes/font_size = 20
+text = "User management installation is being finalized. To setup your user account, please provide the following information. This data will not be collected and is simply for your own user experience. Please provide whatever name you feel comfortable with. 
+"
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_35qqg")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_k6hru")
+theme_override_font_sizes/font_size = 20
+text = "Please ensure this information is accurate. You will NOT have to opportunity to adjust this later.
+"
+autowrap_mode = 3
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_35qqg")
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="First Name" type="Label" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_oqy37")
+text = "First Name:"
+horizontal_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_35qqg")
+
+[node name="Last Name" type="Label" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_oqy37")
+text = "Last Name:"
+horizontal_alignment = 2
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_35qqg")
+
+[node name="Username" type="Label" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_oqy37")
+text = "Username:"
+horizontal_alignment = 2
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_35qqg")
+
+[node name="Computer Name" type="Label" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_oqy37")
+text = "Computer Name:"
+horizontal_alignment = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="FirstName" type="LineEdit" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("3_oqy37")
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_constants/caret_width = 10
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r0g25")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_d8gc2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lhmy5")
+max_length = 15
+context_menu_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_35qqg")
+
+[node name="LastName" type="LineEdit" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("3_oqy37")
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_constants/caret_width = 10
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r0g25")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_d8gc2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lhmy5")
+max_length = 15
+context_menu_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_35qqg")
+
+[node name="Username" type="LineEdit" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("3_oqy37")
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_constants/caret_width = 10
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r0g25")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_d8gc2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lhmy5")
+max_length = 15
+context_menu_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_35qqg")
+
+[node name="ComputerName" type="Label" parent="VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("3_oqy37")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lhmy5")
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_35qqg")
+
+[node name="AcceptRect" type="ColorRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+color = Color(0.220941, 0.220941, 0.220941, 1)
+
+[node name="AcceptText" type="Label" parent="VBoxContainer/AcceptRect"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 797.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("1_k6hru")
+theme_override_font_sizes/font_size = 24
+text = "Done"
+vertical_alignment = 1

@@ -1,25 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://oh7j8d3fc626"]
+[gd_scene load_steps=5 format=3 uid="uid://oh7j8d3fc626"]
 
 [ext_resource type="FontFile" uid="uid://cgxko02rgm2lt" path="res://Fonts/Px437_IBM_VGA_9x16.ttf" id="1_3rse8"]
+[ext_resource type="Script" path="res://Intro/warning_label.gd" id="1_7j4by"]
 
 [sub_resource type="Theme" id="Theme_iillr"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twvxa"]
+
 [node name="WarningLabel" type="VBoxContainer"]
 custom_minimum_size = Vector2(1152, 0)
-offset_right = 1152.0
-offset_bottom = 66.0
+offset_right = 1100.0
+offset_bottom = 446.0
 scale = Vector2(0.998569, 0.998043)
+script = ExtResource("1_7j4by")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 2
 theme = SubResource("Theme_iillr")
 theme_override_fonts/font = ExtResource("1_3rse8")
 theme_override_font_sizes/font_size = 20
-text = "Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
+text = "Permission to freely use, copy, modify, and/or distribute this software  is hereby granted.
  "
 autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 layout_mode = 2
 theme = SubResource("Theme_iillr")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
@@ -35,9 +41,30 @@ text = "THIS SOFTWARE SERVES AS A MEANS FOR ARTIFICIAL INTELLIGENCES TO INTERACT
 autowrap_mode = 3
 
 [node name="Label3" type="Label" parent="."]
+visible = false
 layout_mode = 2
 theme = SubResource("Theme_iillr")
 theme_override_fonts/font = ExtResource("1_3rse8")
 theme_override_font_sizes/font_size = 20
-text = "THE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE."
+text = "THE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTY WITH REGARD TO THIS SOFTWARE. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE."
 autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="."]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_twvxa")
+
+[node name="AcceptRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[node name="AcceptText" type="Label" parent="AcceptRect"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 797.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("1_3rse8")
+theme_override_font_sizes/font_size = 24
+text = "I have read, understand, and accept the license agreement. "
+vertical_alignment = 1

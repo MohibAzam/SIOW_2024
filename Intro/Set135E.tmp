@@ -50,24 +50,9 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_svwwj")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jt46b")
 theme_override_font_sizes/font_size = 18
-text = "[○] Begin --- [1] License Agreement --- [2] Screen Adjustment
+text = "[○] Begin --- [1] License Agreement --- [2] Screen Adjustment --- [3] Account Setup --- [4] Sound Setup 
 "
 horizontal_alignment = 1
-
-[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxEmpty_svwwj")
-
-[node name="InstallComplete" type="Label" parent="."]
-visible = false
-offset_left = 16.0
-offset_top = 128.0
-offset_right = 1168.0
-offset_bottom = 152.0
-theme_override_fonts/font = ExtResource("2_jt46b")
-theme_override_font_sizes/font_size = 24
-text = "Installation Complete! This system will reset in"
-vertical_alignment = 1
 
 [node name="Installation" type="VBoxContainer" parent="."]
 visible = false

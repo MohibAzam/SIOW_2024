@@ -1,0 +1,108 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2qhsuvm1ne8b"]
+
+[ext_resource type="Script" path="res://Runner_App/runner_app.gd" id="1_3uqhn"]
+[ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="1_phvsj"]
+
+[node name="MlZooGui" type="Window"]
+position = Vector2i(0, 36)
+size = Vector2i(350, 250)
+script = ExtResource("1_3uqhn")
+
+[node name="Panel" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(350, 250)
+offset_right = 200.0
+offset_bottom = 200.0
+color = Color(0.862745, 0.862745, 0.862745, 1)
+
+[node name="OptionButton" type="OptionButton" parent="."]
+visible = false
+offset_right = 32.0
+offset_bottom = 20.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+visible = false
+offset_right = 24.0
+offset_bottom = 24.0
+
+[node name="CheckButton" type="CheckButton" parent="."]
+visible = false
+offset_right = 44.0
+offset_bottom = 24.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(350, 250)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_phvsj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Compression Method"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+item_count = 2
+popup/item_0/text = "Test"
+popup/item_1/text = "Test2"
+popup/item_1/id = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_phvsj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Model Type
+"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_phvsj")
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "test"
+alignment = 1
+icon_alignment = 1
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_phvsj")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Test"
+alignment = 1
+icon_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Begin Experiment"

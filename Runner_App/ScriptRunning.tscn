@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbootwvkuruhk"]
+
+[ext_resource type="Script" path="res://Runner_App/ScriptRunning.gd" id="1_o565a"]
+[ext_resource type="FontFile" uid="uid://d2lfn5yhg4akx" path="res://Fonts/Mx437_IBM_DOS_ISO9.ttf" id="2_6o7f3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pmjwi"]
+
+[node name="ScriptRunning" type="Window"]
+size = Vector2i(250, 175)
+script = ExtResource("1_o565a")
+
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(250, 175)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 193.0
+offset_bottom = 53.0
+
+[node name="FillInText" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6o7f3")
+text = "Running experiment..."
+
+[node name="HSeparator" type="HSeparator" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_pmjwi")
+
+[node name="TextProgBar" type="Label" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6o7f3")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

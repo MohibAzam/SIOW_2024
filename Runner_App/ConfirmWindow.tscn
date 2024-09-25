@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx6uo740ubhw4"]
+
+[ext_resource type="Script" path="res://Runner_App/ConfirmWindow.gd" id="1_wd365"]
+[ext_resource type="Texture2D" uid="uid://bt6kirw5ic5kb" path="res://Runner_App/warning.png" id="2_l1s5k"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4tqbc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rq33x"]
+
+[node name="ConfirmWindow" type="Window"]
+position = Vector2i(0, 36)
+size = Vector2i(200, 100)
+always_on_top = true
+theme_override_icons/close = SubResource("CanvasTexture_4tqbc")
+script = ExtResource("1_wd365")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 256.0
+offset_bottom = 52.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_l1s5k")
+
+[node name="ConfirmMessage" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "Exiting will kill the current process. Are you sure?"
+autowrap_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_left = 32.0
+offset_top = 56.0
+offset_right = 288.0
+offset_bottom = 88.0
+
+[node name="Button" type="Button" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(50, 32)
+layout_mode = 2
+text = "Yes"
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_rq33x")
+
+[node name="Button2" type="Button" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(50, 32)
+layout_mode = 2
+text = "No"

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs3auholgghpw"]
+
+[ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="1_2e433"]
+[ext_resource type="Script" path="res://Notepad/notepad_app.gd" id="2_avfux"]
+
+[node name="Notepad_App" type="Window"]
+position = Vector2i(100, 100)
+size = Vector2i(350, 200)
+theme = ExtResource("1_2e433")
+script = ExtResource("2_avfux")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(350, 200)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Text" type="Label" parent="ScrollContainer"]
+custom_minimum_size = Vector2(350, 200)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+autowrap_mode = 3

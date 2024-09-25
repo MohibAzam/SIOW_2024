@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=3 uid="uid://dw1naydjfvjb5"]
+
+[ext_resource type="Script" path="res://Email_App/EmailList.gd" id="1_7kebi"]
+[ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="2_q6513"]
+[ext_resource type="Texture2D" uid="uid://qj1nyu5lcfhw" path="res://Email_App/EmailAssets/Left_a.png" id="3_shclr"]
+[ext_resource type="Texture2D" uid="uid://bnatam0yeq4rt" path="res://Email_App/EmailAssets/Left_c.png" id="4_v5ne1"]
+[ext_resource type="Texture2D" uid="uid://cdjdmdwbvgf3a" path="res://Email_App/EmailAssets/Left_b.png" id="5_6w7fj"]
+[ext_resource type="Texture2D" uid="uid://dof3lmgvv4s6x" path="res://Email_App/EmailAssets/Right_a.png" id="6_jn8cc"]
+[ext_resource type="Texture2D" uid="uid://bwwbt168y1oof" path="res://Email_App/EmailAssets/Right_c.png" id="7_muqjc"]
+[ext_resource type="Texture2D" uid="uid://dlg6j3cltyrmb" path="res://Email_App/EmailAssets/Right_b.png" id="8_wqv6q"]
+[ext_resource type="PackedScene" uid="uid://b21oumhhmnqya" path="res://Email_App/Email Entry.tscn" id="9_c3p3g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmhg0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6cka"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tf0a2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jo4c8"]
+
+[node name="EmailList" type="Window"]
+size = Vector2i(350, 350)
+content_scale_aspect = 1
+content_scale_factor = 0.66
+theme_override_colors/title_color = Color(0.648488, 0.648488, 0.648488, 1)
+theme_override_colors/title_outline_modulate = Color(0.82948, 0.82948, 0.82948, 1)
+script = ExtResource("1_7kebi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 766.0
+offset_bottom = 149.0
+theme_override_constants/separation = 0
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vmhg0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_q6513")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Inbox"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_d6cka")
+
+[node name="LeftPage" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_shclr")
+texture_pressed = ExtResource("4_v5ne1")
+texture_hover = ExtResource("5_6w7fj")
+texture_disabled = ExtResource("5_6w7fj")
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tf0a2")
+
+[node name="RightPage" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_jn8cc")
+texture_pressed = ExtResource("7_muqjc")
+texture_hover = ExtResource("8_wqv6q")
+texture_disabled = ExtResource("8_wqv6q")
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jo4c8")
+
+[node name="EmailEntry0" parent="VBoxContainer" instance=ExtResource("9_c3p3g")]
+visible = false
+layout_mode = 2
+
+[node name="EmailEntry1" parent="VBoxContainer" instance=ExtResource("9_c3p3g")]
+visible = false
+layout_mode = 2
+
+[node name="EmailEntry2" parent="VBoxContainer" instance=ExtResource("9_c3p3g")]
+visible = false
+layout_mode = 2
+
+[node name="EmailEntry3" parent="VBoxContainer" instance=ExtResource("9_c3p3g")]
+visible = false
+layout_mode = 2
+
+[node name="EmailEntry4" parent="VBoxContainer" instance=ExtResource("9_c3p3g")]
+visible = false
+layout_mode = 2
+
+[node name="EmailEntry5" parent="VBoxContainer" instance=ExtResource("9_c3p3g")]
+visible = false
+layout_mode = 2
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/LeftPage" to="." method="_on_left_page_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/RightPage" to="." method="_on_right_page_pressed"]
+[connection signal="spawn_email_entry" from="VBoxContainer/EmailEntry0" to="." method="_handle_spawn_email_attempt"]
+[connection signal="spawn_email_entry" from="VBoxContainer/EmailEntry1" to="." method="_handle_spawn_email_attempt"]
+[connection signal="spawn_email_entry" from="VBoxContainer/EmailEntry2" to="." method="_handle_spawn_email_attempt"]
+[connection signal="spawn_email_entry" from="VBoxContainer/EmailEntry3" to="." method="_handle_spawn_email_attempt"]
+[connection signal="spawn_email_entry" from="VBoxContainer/EmailEntry4" to="." method="_handle_spawn_email_attempt"]
+[connection signal="spawn_email_entry" from="VBoxContainer/EmailEntry5" to="." method="_handle_spawn_email_attempt"]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://b21oumhhmnqya"]
+
+[ext_resource type="Script" path="res://Email_App/email_entry.gd" id="1_e520s"]
+[ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="1_oc0dw"]
+[ext_resource type="FontFile" uid="uid://rf455wpgq5yc" path="res://Fonts/IBM_Plex_Sans/IBMPlexSans-Bold.ttf" id="3_bejfk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jngi"]
+bg_color = Color(0.862745, 0.862745, 0.862745, 1)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.894118, 0.894118, 0.894118, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gtdyj"]
+
+[node name="EmailEntry" type="Panel"]
+custom_minimum_size = Vector2(350, 72)
+offset_right = 320.0
+offset_bottom = 50.0
+theme = ExtResource("1_oc0dw")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3jngi")
+script = ExtResource("1_e520s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(350, 72)
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 72.0
+alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gtdyj")
+
+[node name="Sender" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bejfk")
+theme_override_font_sizes/font_size = 24
+text = "Sample Sender"
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gtdyj")
+
+[node name="Subject" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Sample Subject"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

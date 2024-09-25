@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://buq7yn7ns7lgm"]
+
+[ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="1_41pxj"]
+[ext_resource type="Script" path="res://Explorer_App/explorer_entry.gd" id="1_odgtf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axfdt"]
+
+[node name="ExplorerEntry" type="HBoxContainer"]
+theme = ExtResource("1_41pxj")
+script = ExtResource("1_odgtf")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+
+[node name="VSep" type="VSeparator" parent="."]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_axfdt")
+
+[node name="Fname" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)

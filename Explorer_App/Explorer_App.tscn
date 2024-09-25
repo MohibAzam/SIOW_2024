@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv8gyqo3s2h1m"]
+
+[ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="1_737i7"]
+[ext_resource type="Script" path="res://Explorer_App/explorer_app.gd" id="2_aphsv"]
+
+[node name="ExplorerApp" type="Window"]
+position = Vector2i(0, 36)
+size = Vector2i(200, 150)
+theme = ExtResource("1_737i7")
+script = ExtResource("2_aphsv")
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="Scroll"]
+layout_mode = 2

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://ijb5bnqad4j1"]
+
+[ext_resource type="Script" path="res://OS_Core/desktop.gd" id="1_lktrm"]
+[ext_resource type="PackedScene" uid="uid://bttqjwu0sbskc" path="res://OS_Core/OS_Icons/Email.tscn" id="2_rromg"]
+[ext_resource type="PackedScene" uid="uid://dann837nnimkc" path="res://OS_Core/OS_Icons/MioDB.tscn" id="3_ncdcd"]
+[ext_resource type="PackedScene" uid="uid://futasi27kx6a" path="res://OS_Core/AITerminal.tscn" id="4_li2xp"]
+[ext_resource type="PackedScene" uid="uid://b05hry8kq7s4a" path="res://OS_Core/OS_Icons/CompresZoo.tscn" id="4_yijne"]
+
+[node name="Desktop" type="Node2D"]
+script = ExtResource("1_lktrm")
+
+[node name="Email" parent="." instance=ExtResource("2_rromg")]
+position = Vector2(8, 8)
+
+[node name="MioDb" parent="." instance=ExtResource("3_ncdcd")]
+position = Vector2(4, 120)
+
+[node name="CompresZoo" parent="." instance=ExtResource("4_yijne")]
+position = Vector2(8, 232)
+
+[node name="AiTerminal" parent="." instance=ExtResource("4_li2xp")]
+position = Vector2(761, 12)

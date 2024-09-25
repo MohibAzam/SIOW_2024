@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://futasi27kx6a"]
+
+[ext_resource type="Script" path="res://OS_Core/AITerminal.gd" id="1_uptnt"]
+[ext_resource type="FontFile" uid="uid://dq08huyftuo0h" path="res://Fonts/IBM_Plex_Mono/IBMPlexMono-ExtraLight.ttf" id="2_egok8"]
+[ext_resource type="FontFile" uid="uid://bsd4844yiug3b" path="res://Fonts/IBM_Plex_Mono/IBMPlexMono-ExtraLightItalic.ttf" id="3_ghsyc"]
+[ext_resource type="FontFile" uid="uid://dur4jaxw5rkco" path="res://Fonts/IBM_Plex_Mono/IBMPlexMono-BoldItalic.ttf" id="4_ufwr3"]
+[ext_resource type="FontFile" uid="uid://c3frmu4mjki82" path="res://Fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf" id="5_iiifn"]
+
+[sub_resource type="Theme" id="Theme_qrs7b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5aw2q"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+border_color = Color(0.188235, 0.188235, 0.188235, 1)
+shadow_color = Color(0.501961, 0.501961, 0.501961, 1)
+shadow_size = 4
+
+[node name="AiTerminal" type="Node2D"]
+visibility_layer = 524288
+script = ExtResource("1_uptnt")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_right = 377.0
+offset_bottom = 225.0
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextPanel" type="Panel" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(375, 225)
+layout_mode = 2
+theme = SubResource("Theme_qrs7b")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5aw2q")
+
+[node name="MainText" type="RichTextLabel" parent="HBoxContainer2/TextPanel"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 358.0
+offset_bottom = 214.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_egok8")
+theme_override_fonts/italics_font = ExtResource("3_ghsyc")
+theme_override_fonts/bold_italics_font = ExtResource("4_ufwr3")
+theme_override_fonts/bold_font = ExtResource("5_iiifn")
+theme_override_font_sizes/normal_font_size = 24
+text = "Yes...I see.."

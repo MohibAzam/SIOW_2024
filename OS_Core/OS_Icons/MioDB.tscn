@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dann837nnimkc"]
+
+[ext_resource type="Script" path="res://OS_Core/OS_Icons/mio_db.gd" id="1_dkegs"]
+[ext_resource type="Texture2D" uid="uid://g2ma04vj6v1v" path="res://OS_Core/OS_Icons/Icon_Assets/DataBase.png" id="1_s8xuq"]
+[ext_resource type="Texture2D" uid="uid://b26uothneq37v" path="res://OS_Core/OS_Icons/Icon_Assets/DataBaseGray.png" id="2_7e3hb"]
+[ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="3_weeq8"]
+
+[node name="MioDb" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_dkegs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 382.0
+offset_bottom = 472.0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureButton" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_s8xuq")
+texture_pressed = ExtResource("2_7e3hb")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_weeq8")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "MioDB"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer/TextureRect" to="." method="_on_texture_rect_pressed"]

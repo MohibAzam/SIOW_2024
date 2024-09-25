@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b05hry8kq7s4a"]
+
+[ext_resource type="Script" path="res://OS_Core/OS_Icons/compres_zoo.gd" id="1_rmt1t"]
+[ext_resource type="Texture2D" uid="uid://bj0jmognt5ggr" path="res://OS_Core/OS_Icons/Icon_Assets/compresszoo2.png" id="2_xn6pc"]
+[ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="4_rlxov"]
+
+[node name="CompresZoo" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_rmt1t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 329.0
+offset_bottom = 472.0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureButton" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_xn6pc")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_rlxov")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "Compress
+Zoo"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/CenterContainer/TextureRect" to="." method="_on_texture_rect_pressed"]

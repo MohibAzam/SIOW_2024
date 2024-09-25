@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://tdgodotdnmh6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kga4b"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[node name="Cell" type="PanelContainer"]
+offset_right = 100.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kga4b")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Test Text Test 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3

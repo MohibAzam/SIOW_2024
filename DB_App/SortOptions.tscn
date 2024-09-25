@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf8rm730ie6b7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35rl7"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 0.988235)
+
+[node name="SortOptions" type="Window"]
+size = Vector2i(250, 200)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(250, 200)
+offset_right = 190.0
+offset_bottom = 90.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_35rl7")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Column" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+item_count = 2
+popup/item_0/text = "Option1"
+popup/item_1/text = "Option2"
+popup/item_1/id = 1
+
+[node name="Type" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Alphabetical"
+popup/item_1/text = "Value"
+popup/item_1/id = 1
+popup/item_2/text = "Length"
+popup/item_2/id = 2
+
+[node name="Ascend" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+button_pressed = true
+text = "Ascending Order"
+
+[node name="CheckButton2" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+button_pressed = true
+text = "Adjust all columns"

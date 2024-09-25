@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://b67lbb5x4o234"]
+
+[ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="1_7wg6e"]
+[ext_resource type="Script" path="res://DB_App/database.gd" id="1_fb07r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7a4p"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fadcg"]
+
+[node name="Database" type="Window"]
+size = Vector2i(400, 300)
+script = ExtResource("1_fb07r")
+
+[node name="Panel" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(500, 400)
+offset_right = 200.0
+offset_bottom = 200.0
+color = Color(0.862745, 0.862745, 0.862745, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 300)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_7wg6e")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Data Preview"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s7a4p")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(380, 180)
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Filter" type="Button" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_7wg6e")
+text = "Filter"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fadcg")
+
+[node name="Edit" type="Button" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_7wg6e")
+text = "Edit"
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fadcg")
+
+[node name="Save" type="Button" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_7wg6e")
+text = "Save"
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fadcg")
+
+[node name="Load" type="Button" parent="VBoxContainer/CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_7wg6e")
+text = "Load
+"

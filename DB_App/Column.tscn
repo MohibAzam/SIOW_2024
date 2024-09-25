@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvlu51j85m0uo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8i8e"]
+bg_color = Color(0.941176, 0.941176, 0.941176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="Column" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1052.0
+offset_bottom = -588.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleCell" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e8i8e")
+
+[node name="Label" type="Label" parent="TitleCell"]
+layout_mode = 2
+text_overrun_behavior = 4

@@ -7,7 +7,10 @@ var _zhenhuang_messages = []
 
 var _curr_hour = 8
 var _curr_minute = 0
+var curr_month = 11
+var curr_day = 15
 var _score = 0
+
 
 var stored_files = {}
 
@@ -24,6 +27,7 @@ func increment_time(min) -> void:
 	time_updated.emit(_curr_hour, _curr_minute)
 	
 func get_time(): return [_curr_hour, _curr_minute]
+func get_date(): return [curr_month, curr_day]
 
 func set_score(new_score) -> void:
 	_score = new_score
@@ -47,13 +51,15 @@ func add_email_stack(entry: Dictionary):
 	_email_stack.push_front(entry)
 	emails_updated.emit()
 
+func push_ana_message(message, from_us=false): _ana_messages.append({'message': message, 'from_us':from_us})
+func push_zhen_message(message, from_us=false): _zhenhuang_messages.append({'message': message, 'from_us':from_us})
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var sample_email_1 = {}
 	sample_email_1['subject'] = "This is a test email!"
 	sample_email_1['sender'] = "John Doe"
 	sample_email_1['body'] = "To Veronica,\n\nThis is your left ear.\nLe-le-le-left!\n\n Best,\nJohn"
-	add_email_stack(sample_email_1)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

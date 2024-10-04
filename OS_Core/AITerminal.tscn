@@ -1,15 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://futasi27kx6a"]
+[gd_scene load_steps=9 format=3 uid="uid://futasi27kx6a"]
 
 [ext_resource type="Script" path="res://OS_Core/AITerminal.gd" id="1_uptnt"]
-[ext_resource type="FontFile" uid="uid://dq08huyftuo0h" path="res://Fonts/IBM_Plex_Mono/IBMPlexMono-ExtraLight.ttf" id="2_egok8"]
+[ext_resource type="FontFile" uid="uid://boq1cn32omrm1" path="res://Fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf" id="2_3ioul"]
 [ext_resource type="FontFile" uid="uid://bsd4844yiug3b" path="res://Fonts/IBM_Plex_Mono/IBMPlexMono-ExtraLightItalic.ttf" id="3_ghsyc"]
 [ext_resource type="FontFile" uid="uid://dur4jaxw5rkco" path="res://Fonts/IBM_Plex_Mono/IBMPlexMono-BoldItalic.ttf" id="4_ufwr3"]
 [ext_resource type="FontFile" uid="uid://c3frmu4mjki82" path="res://Fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf" id="5_iiifn"]
+[ext_resource type="AudioStream" uid="uid://dg0dagpy4xusu" path="res://OS_Core/Sound/thought_sound2_lowres.wav" id="6_tn2o2"]
 
 [sub_resource type="Theme" id="Theme_qrs7b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5aw2q"]
-bg_color = Color(0.878431, 0.878431, 0.878431, 1)
+bg_color = Color(0.956863, 0.972549, 0.956863, 1)
 border_color = Color(0.188235, 0.188235, 0.188235, 1)
 shadow_color = Color(0.501961, 0.501961, 0.501961, 1)
 shadow_size = 4
@@ -39,9 +40,13 @@ offset_top = 4.0
 offset_right = 358.0
 offset_bottom = 214.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_egok8")
+theme_override_fonts/normal_font = ExtResource("2_3ioul")
 theme_override_fonts/italics_font = ExtResource("3_ghsyc")
 theme_override_fonts/bold_italics_font = ExtResource("4_ufwr3")
 theme_override_fonts/bold_font = ExtResource("5_iiifn")
 theme_override_font_sizes/normal_font_size = 24
 text = "Yes...I see.."
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_tn2o2")
+volume_db = -3.0

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0yun3281xogh"]
+
+[ext_resource type="Script" path="res://Chapter2/chapter_2.gd" id="1_x8ofo"]
+
+[node name="Chapter2" type="Node2D"]
+script = ExtResource("1_x8ofo")

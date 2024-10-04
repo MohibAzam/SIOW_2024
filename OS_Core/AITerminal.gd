@@ -8,24 +8,43 @@ var default_write_timer = 2
 var write_speed_dict = {}
 var curr_delta = 0
 
+var ready_now = false
+
 signal text_done
 signal grown
 signal ready_for_use
 
-func write_text(given_text, base_timer=2, specific_timers={}, textbox_ind=0, font_size=0):
-	buffered_text = given_text
+func _handle_write_text_kwargs(kwargs):
+	if not ('specific_timers' in kwargs):
+		kwargs['specific_timers'] = {}
+	if not ('textbox_ind' in kwargs):
+		kwargs['textbox_ind'] = 0
+	if not ('font_size' in kwargs):
+		kwargs['font_size'] = 0
+	if not ('reset' in kwargs):
+		kwargs['reset'] = true
+	return kwargs
+
+func write_text(given_text, base_timer=2, init_kwargs={}):
+	var kwargs = _handle_write_text_kwargs(init_kwargs)
+	
 	default_write_timer = base_timer
-	for i in range(len(given_text)):
-		if i in specific_timers:
-			write_speed_dict[i] = specific_timers[i]
+	if kwargs['reset']:
+		curr_text = ""
+		curr_text_ind = 0
+		buffered_text = given_text
+	else:
+		buffered_text += given_text
+	print(buffered_text)
+	for i in range(len(curr_text) + len(given_text)):
+		if i in kwargs['specific_timers']:
+			write_speed_dict[i] = kwargs['specific_timers'][i]
 		else:
 			write_speed_dict[i] = base_timer
-	curr_text = ""
 	_write_mode = true
 	curr_delta = 0
-	curr_text_ind = 0
-	if font_size > 0:
-		$VBox/Text.set("theme_override_font_sizes/font_size", font_size)
+	if kwargs['font_size'] > 0:
+		$VBox/Text.set("theme_override_font_sizes/font_size", kwargs['font_size'])
 
 func _grow_out() -> void:
 	$HBoxContainer2.scale.x = 0
@@ -42,6 +61,7 @@ func _ready():
 	_grow_out()
 	await grown
 	ready_for_use.emit()
+	ready_now = true
 	_write_mode = false
 	# write_text("This is some more sample text, but slower", 4)
 
@@ -51,6 +71,7 @@ func _process(delta):
 		curr_delta += 1
 		if curr_delta >= write_speed_dict[curr_text_ind]:
 			curr_text += buffered_text[curr_text_ind]
+			# $Sound.play()
 			curr_text_ind += 1
 			curr_delta = 0 
 		if curr_text == buffered_text:

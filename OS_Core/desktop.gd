@@ -17,6 +17,15 @@ var window_inds = []
 var base_x_posns = [100, 350, 100, 400, 700]
 var base_y_posns = [50, 60, 300, 310, 320]
 
+var click_enabled = true
+
+var terminal_ready = false
+
+signal text_done
+signal opening_email(subject, read)
+
+signal email_app_opened
+
 func _determine_location():
 	var window_ind = 0
 	while window_ind in window_inds:
@@ -65,23 +74,45 @@ func _handle_spawn_reply(subject, sender, body, replied_flag):
 		email_view.sender = sender
 		email_view.body = body
 		email_view.replied_flag = replied_flag
+		opening_email.emit(subject, )
 	
 
 func _open_email_app(app_name):
-	var email_node = _open_app("Email", "res://Email_App/EmailList.tscn")
-	if email_node:
-		email_node.spawn_email_entry.connect(_handle_spawn_reply)
+	if click_enabled:
+		var email_node = _open_app("Email", "res://Email_App/EmailList.tscn")
+		if email_node:
+			email_node.spawn_email_entry.connect(_handle_spawn_reply)
+			email_app_opened.emit()
 	
 
 func _open_script_app(app_name):
-	var script_node = _open_app("Script", "res://Runner_App/ScriptRunning.tscn", true)
+	if click_enabled: var script_node = _open_app("Script", "res://Runner_App/ScriptRunning.tscn", true)
+	
+func _terminal_ready(): terminal_ready = true
+
+func _handle_text_done(): text_done.emit()
+
+func add_task(task_name): $TodoList.add_task(task_name)
+
+func mark_done(task_name): $TodoList.mark_done(task_name)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Connect all of the icons to the runner script
 	$Email.clicked.connect(_open_email_app)	
 	$CompresZoo.clicked.connect(_open_script_app)
+	$AiTerminal.ready_for_use.connect(_terminal_ready)
+	$AiTerminal.text_done.connect(_handle_text_done)
+	$StaticOverlay.play()
 	pass # Replace with function body.
+	
+func add_animation(clear_anim = true):
+	if clear_anim:
+		$StaticOverlay.hide()
+		
+	pass
+
+func write_text(given_text, base_timer=2, init_kwargs={}): $AiTerminal.write_text(given_text, base_timer, init_kwargs)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

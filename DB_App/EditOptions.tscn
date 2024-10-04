@@ -1,9 +1,65 @@
-[gd_scene format=3 uid="uid://dpet3dxb846l0"]
+[gd_scene load_steps=2 format=3 uid="uid://dpet3dxb846l0"]
 
-[node name="EditOptions" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" path="res://DB_App/edit_options.gd" id="1_m4kl2"]
+
+[node name="EditOptions" type="Window"]
+script = ExtResource("1_m4kl2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="BasicOption" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Choose an option..."
+popup/item_0/disabled = true
+popup/item_1/text = "Arithmetic"
+popup/item_1/id = 1
+popup/item_2/text = "Logical"
+popup/item_2/id = 2
+popup/item_3/text = "Text"
+popup/item_3/id = 3
+
+[node name="Arithmetic" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 5
+popup/item_1/text = "Add Two Columns"
+popup/item_1/id = 1
+popup/item_2/text = "Subtract Two Columns"
+popup/item_2/id = 2
+popup/item_3/text = "Multiply Two Columns"
+popup/item_3/id = 3
+popup/item_4/text = "Divide Two Columns"
+popup/item_4/id = 4
+
+[node name="Logical" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="String" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Col1" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Col2" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Value" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Edit" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Edit" to="." method="_on_edit_pressed"]

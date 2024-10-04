@@ -7,7 +7,8 @@ func _ready() -> void:
 	%Mark.hide()
 	pass # Replace with function body.
 	
-func set_item(item: String) -> void: %Item.text = item
+func set_item(item: String) -> void:
+	%Item.text = item
 
 func mark_done() -> void:
 	_done = true

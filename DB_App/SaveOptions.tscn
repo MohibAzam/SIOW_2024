@@ -1,9 +1,48 @@
-[gd_scene format=3 uid="uid://b4ik3vxghec0w"]
+[gd_scene load_steps=3 format=3 uid="uid://b4ik3vxghec0w"]
 
-[node name="SaveOptions" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" path="res://DB_App/save_options.gd" id="1_dsf50"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhlx5"]
+bg_color = Color(0.878431, 0.878431, 0.878431, 0.988235)
+
+[node name="SaveOptions" type="Window"]
+title = "Save"
+size = Vector2i(250, 250)
+script = ExtResource("1_dsf50")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 250.0
+offset_bottom = 250.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mhlx5")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CSV" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save as CSV"
+
+[node name="PDF" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save as PDF"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "Select a Column..."
+popup/item_0/disabled = true
+
+[node name="StatsPDF" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Save Column Stats"
+
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/CSV" to="." method="_on_csv_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/PDF" to="." method="_on_pdf_pressed"]

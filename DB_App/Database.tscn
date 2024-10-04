@@ -9,6 +9,7 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fadcg"]
 
 [node name="Database" type="Window"]
+position = Vector2i(0, 36)
 size = Vector2i(400, 300)
 script = ExtResource("1_fb07r")
 

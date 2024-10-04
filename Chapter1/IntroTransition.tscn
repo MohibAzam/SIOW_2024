@@ -1,10 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtnc827gnwjeo"]
 
 [ext_resource type="Script" path="res://Chapter1/intro_transition.gd" id="1_5dlkv"]
-[ext_resource type="Texture2D" uid="uid://cql5kx8bm3vft" path="res://Chapter1/Sprites/white_circle.png" id="2_c7fsj"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n8o7i"]
-texture = ExtResource("2_c7fsj")
+[ext_resource type="Texture2D" uid="uid://bltlspvurauhm" path="res://Chapter1/Sprites/curvestar.png" id="2_km8kb"]
+[ext_resource type="AudioStream" uid="uid://bgxhiqqbqpodn" path="res://music/1-DAY1-INTRO-V1-chordfades.mp3" id="3_slmd7"]
 
 [node name="IntroTransition" type="Node2D"]
 script = ExtResource("1_5dlkv")
@@ -15,8 +13,11 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
-[node name="Circle" type="Panel" parent="."]
-custom_minimum_size = Vector2(300, 300)
+[node name="Circle" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)
-pivot_offset = Vector2(150, 150)
-theme_override_styles/panel = SubResource("StyleBoxTexture_n8o7i")
+texture = ExtResource("2_km8kb")
+
+[node name="StartupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_slmd7")
+
+[connection signal="finished" from="StartupSound" to="." method="_on_startup_sound_finished"]

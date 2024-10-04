@@ -1,9 +1,42 @@
-[gd_scene format=3 uid="uid://w0632sj435xk"]
+[gd_scene load_steps=2 format=3 uid="uid://w0632sj435xk"]
 
-[node name="FilterOptions" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" path="res://DB_App/filter_options.gd" id="1_8dyww"]
+
+[node name="FilterOptions" type="Window"]
+size = Vector2i(320, 250)
+script = ExtResource("1_8dyww")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="FilterType" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Select an option..."
+popup/item_0/disabled = true
+popup/item_1/text = "Remove this column"
+popup/item_1/id = 1
+popup/item_2/text = "Remove rows falsein this column"
+popup/item_2/id = 2
+popup/item_3/text = "Remove rows empty in this column"
+popup/item_3/id = 3
+
+[node name="ColName" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ApplyFilter" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "Apply Filter"

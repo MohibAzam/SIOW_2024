@@ -11,13 +11,13 @@ var max_page = 0 # The final page of the emails
 var _entry_num = 6 # The number of entries per page (reduces hardcoding)
 
 # Emit this when we're viewing the contents of an email
-signal spawn_email_entry(subject, sender, body, replied_flag) 
+signal spawn_email_entry(subject, sender, body, replied_flag, read_flag) 
 
 # Emit with when we're closing the app
 signal closing_app(app_name: String)
 
-func _handle_spawn_email_attempt(subject, sender, body, replied_flag):
-	spawn_email_entry.emit(subject, sender, body, replied_flag)
+func _handle_spawn_email_attempt(subject, sender, body, replied_flag, read_flag):
+	spawn_email_entry.emit(subject, sender, body, replied_flag, read_flag)
 
 func _current_emails():
 	var _email_entries = GlobalVars.get_email_stack()
@@ -41,10 +41,8 @@ func _current_emails():
 			target_entry.read_flag = email_data["read"]
 			target_entry.show()
 
-func _handle_emails_updated():
-	_current_emails()
+func _handle_emails_updated(): _current_emails()
 
-	
 func _update_arrows():
 	if curr_page_index == 0:
 		$VBoxContainer/HBoxContainer/LeftPage.disabled = true

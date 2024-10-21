@@ -14,8 +14,11 @@ var base_text_timer = 0.1
 var subject_func_dict = {
 	"Hi!!! Wanna catch up?": _first_anna_email,
 	"Updates": _first_gordon_email,
-	"Help Obtaining Data": _first_sohail_email
+	"Urgent help needed with data": _first_sohail_email,
+	"Reminders for Thanksgiving!": _student_email
 }
+
+var opened_init_emails = 0
 
 signal chapter_end
 
@@ -139,21 +142,19 @@ func _ending_blabber():
 
 func _push_sohail_response():
 	var email_4 = {}
-	email_4['sender'] = "SYSTEM"
-	email_4['subject'] = "Invalid Reply"
-	email_4['body'] = "This is an automated reply from \"QU West Reslife\":\n\n" + \
-		"Please do not send emails to this address. If you have any questions or concerns," + \
-		"please contact your respective RA.\n\n(THIS IS AN AUTOMATED EMAIL)"
+	email_4['sender'] = ""
+	email_4['subject'] = ""
+	email_4['body'] = ""
 	email_4['replied'] = true
 
 func _push_bounce_response():
-	var email_4 = {}
-	email_4['sender'] = "SYSTEM"
-	email_4['subject'] = "Invalid Reply"
-	email_4['body'] = "This is an automated reply from \"QU West Reslife\":\n\n" + \
+	var new_email = {}
+	new_email['sender'] = "SYSTEM"
+	new_email['subject'] = "Invalid Reply"
+	new_email['body'] = "This is an automated reply from \"QU West Reslife\":\n\n" + \
 		"Please do not send emails to this address. If you have any questions or concerns," + \
 		"please contact your respective RA.\n\n(THIS IS AN AUTOMATED EMAIL)"
-	email_4['replied'] = true
+	new_email['replied'] = true
 	
 
 func _write_stuff_intro(text_entries, end_timer=base_timer, pause_timer=base_timer/2):
@@ -175,15 +176,17 @@ func _intro_text() -> void:
 	await _write_stuff_intro([[".......?", 16]])
 	await _write_stuff_intro([[".....Huh...?", 16]])
 	await _write_stuff_intro([["Am...", 8], ["Am I...awake...?", 4]])
-	await _write_stuff_intro([["...", 8], ["Where am I anyways?", 4]])
+	await _write_stuff_intro([["...", 8], ["Where am I?", 4]])
+	desktop.show_taskbar()
 	await _write_stuff_intro([["And.....", 8], ["Wait......", 8], ["I don't......", 8]])
-	await _write_stuff_intro([["...Who exactly am I?", 4]])
+	await _write_stuff_intro([["...Who exactly am I anyways?", 4]])
 	
 	# At this point we spawn in the to-do list
 	desktop.click_enabled = false
 	desktop.add_task("Check your email")
 	
 	desktop.get_node('TodoList').show()
+	desktop.get_node('TodoList').grow_out()
 	await get_tree().create_timer(1).timeout
 	await _write_stuff_intro([['Huh?', 4], [' A To-Do List?', 4]])
 	await _write_stuff_intro([['It says I need to check my email...', 4]])
@@ -199,32 +202,32 @@ func _intro_text() -> void:
 	
 # This function gets called when we check our emails for the first time
 func _first_email_call():
-	var _active_method = "_first_email_call"
+	_active_method = "_first_email_call"
 	await _write_stuff_intro([["This looks like a list of items. I suppose each of these is an \"email.\"", 4]])
 	if _active_method == "_first_email_call":
 		_write_stuff_intro([["Is there a way to interact with any of these?", 4]])
 
 func _student_email():
-	var _active_method = "_student_email"
+	_active_method = "_student_email"
 	await _write_stuff_intro([["This appears to be an email directed to students at Quincy University.", 4]])
-	if not(_active_method == "_student_email"): return
-	await _write_stuff_intro([["Quincy University is a University located in Quincy, North Carolina in the United States.", 4]])
-	if not(_active_method == "_student_email"): return
-	await _write_stuff_intro([["It is an R1 research institution and is well-known for its research output in a wide-variety of fields, namely Social Science, Cognitive Science and Computer Science.", 4]])
-	if not(_active_method == "_student_email"): return
-	await _write_stuff_intro([["Its current enrollment is 10,740 undergraduate students and 13,650 graduate students. Its endowment as of 2028 is 6.3 Billion USD.", 4]])
-	if not(_active_method == "_student_email"): return
-	await _write_stuff_intro([["If we've received this email, I assume we are a student at this institution.", 4]])
+	if (_active_method == "_student_email"): 
+		await _write_stuff_intro([["Quincy University is a University located in Quincy, North Carolina in the United States.", 4]])
+	if (_active_method == "_student_email"): 
+		await _write_stuff_intro([["It is an R1 research institution and is well-known for its research output in a wide-variety of fields, namely Social Science, Cognitive Science and Computer Science.", 4]])
+	if (_active_method == "_student_email"): 
+		await _write_stuff_intro([["Its current enrollment is 10,740 undergraduate students and 13,650 graduate students. Its endowment as of 2028 is 6.3 Billion USD.", 4]])
+	if (_active_method == "_student_email"): 
+		await _write_stuff_intro([["If we've received this email, I assume we are a student at this institution.", 4]])
 
 func _first_anna_email():
-	var _active_method = "_first_anna_email"
-	await _write_stuff_intro([["Anna...that name doesn't sound familiar to me...", 4]])
+	_active_method = "_first_anna_email"
+	await _write_stuff_intro([["Anna...that name does not sound familiar to me...", 4]])
 	if _active_method == "_first_anna_email":
 		await _write_stuff_intro([["They seem to know a lot about me, perhaps speaking with them at some point would help in reforming my memory...", 4]])
 
 func _first_gordon_email():
-	var _active_method = "_first_gordon_email"
-	await _write_stuff_intro([["This appears to be an email sent by a person named Gordon Jayce", 4]])
+	_active_method = "_first_gordon_email"
+	await _write_stuff_intro([["This appears to be an email sent by a person named Gordon Jarret", 4]])
 	if _active_method == "_first_gordon_email":
 		await _write_stuff_intro([["I do seem to recall that there is a public figure of that name, he is an assistant professor at Quincy University.", 4]])
 	if _active_method == "_first_gordon_email":
@@ -243,20 +246,37 @@ func _first_gordon_email():
 func _first_sohail_email():
 	pass
 
+func _first_qu_email():
+	_active_method = "_first_qu_email"
+	await _write_stuff_intro([["This is an email from a group called \"QU ResLife\"", 4]])
+	if _active_method == "_first_qu_email":
+		await _write_stuff_intro([["\"ResLife\" is a term typically used by college campuses to refer to departments that handle students living in dormitories", 4]])
+	if _active_method == "_first_qu_email":
+		await _write_stuff_intro([["The U in \"QU\" likely University, but I am not sure what the Q would stand for...", 4]])
+	if _active_method == "_first_qu_email":
+		await _write_stuff_intro([["Regarding the email contents...Thanksgiving refers to a major United States holiday occuring on the 4th Thursday of November.", 4]])
+	if _active_method == "_first_qu_email":
+		await _write_stuff_intro([["If I am receiving this email, it's likely that I am a student at this American university", 4]])
+	if _active_method == "_first_qu_email":	
+		await _write_stuff_intro([["This would also indicate that I have woken up a few days before Thanksgiving, which is on November 28th this year.", 4]])
+
 func _done_email_checks():
-	desktop.fade_to_black()
-	var _active_method = "_done_email_checks"
-	await _write_stuff_intro([["With all of this information...", 8], ["do I...", 16], ["remember anything...", 32]])
-	desktop.intro_thinking()
-	await _write_stuff_intro([[".......", 32], [".......Oh! Obviously! How could I forget!?", 4]])
-	await _write_stuff_intro(["My name is Veronica.", 4], ["I'm an artifical intelligence created by Zhenhuang Tsui, a PhD student at Quincy University.", 4])
-	await _write_stuff_intro(["I was trained on a dataset known as the Human Experience Dataset, a dataset that compiles chat messages and computer activity across many different platforms."])
-	await _write_stuff_intro(["It is a collaborative effort between a number of research groups at Microsoft, Meta, Apple, and so forth."])
-	await _write_stuff_intro(["This dataset has not been publicly released as it is pending approvals from the EU, "])
-	await _write_stuff_intro(["It seems that I'm being...\"contained\"(?) in a simulation environment for testing purposes."])
-	await _write_stuff_intro(["Well, I'm not entirely sure what I should be doing. BUT, it seems like I could start by "])
-	await _write_stuff_intro(["I believe we were trained using a reward value, but I don't really see one here.", 4])
-	await _write_stuff_intro(["I think it would be nice to have such a metric in case I feel the need to adjust myself, so let's go ahead and add one...", 4])
+	desktop.click_enabled = false
+	_active_method = "_done_email_checks"
+	_write_stuff_intro([["With all of this information...", 8], ["do I...", 16], ["remember anything...", 32]])
+	await desktop.fade_to_black()
+	# desktop.intro_thinking()
+	await _write_stuff_intro([[".......", 32]])
+	desktop.reset_overlays()
+	await _write_stuff_intro([[".......Oh! Obviously! How could I forget!?", 4]])
+	await _write_stuff_intro([["My name is Veronica.", 4], ["I'm an artifical intelligence created by Zhenhuang Tsui, a PhD student at Quincy University.", 4]])
+	await _write_stuff_intro([["I was trained on a dataset known as the Human Experience Dataset, a dataset that compiles chat messages and computer activity across many different platforms.", 4]])
+	await _write_stuff_intro([["It is a collaborative effort between a number of research groups at Microsoft, Meta, Apple, and so forth.", 4]])
+	await _write_stuff_intro([["This dataset has not been publicly released as it is pending approvals from the EU, ", 4]])
+	await _write_stuff_intro([["It seems that I'm being...\"contained\"(?) in a simulation environment for testing purposes.", 4]])
+	await _write_stuff_intro([["Well, I'm not entirely sure what I should be doing. BUT, it seems like I could start by ", 4]])
+	await _write_stuff_intro([["I believe we were trained using a reward value, but I don't really see one here.", 4]])
+	await _write_stuff_intro([["I think it would be nice to have such a metric in case I feel the need to adjust myself, so let's go ahead and add one...", 4]])
 	desktop.add_score()
 	await get_tree().create_timer(1).timeout
 	await _write_stuff_intro(["Ah!", 4], ["There we go!", 4])
@@ -306,7 +326,7 @@ func _after_send_reply_gordon():
 	await _write_stuff_intro([[""]])
 
 func _done_replies():
-	desktop.lock_desktop()
+	desktop.click_enabled = false
 	await _write_stuff_intro([["Well, it looks like all of the replies are all set, so we can mark that off the list..."]])
 	await _write_stuff_intro([["Oh! I haven't really been paying attention to what time it is..."]])
 	desktop.highlight_time()
@@ -318,22 +338,36 @@ func _handle_email_stuff():
 		_first_email_call()
 		_first_email_done = true
 		
-func _handle_email_open(subject): subject_func_dict[subject].call()
+func _handle_email_open(subject, read):
+	opened_init_emails += int(not(read))
+	subject_func_dict[subject].call()
+	
+func _handle_app_close(app_name):
+	print(opened_init_emails)
+	if app_name == "Email" and opened_init_emails == 4: await _done_email_checks()
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	desktop = desktop_load.instantiate()
-	desktop.get_node('Email').hide()
-	desktop.get_node('MioDb').hide()
-	desktop.get_node('CompresZoo').hide()
-	desktop.get_node('TodoList').hide()
+	if not _intro_text_done:
+		desktop.get_node('Email').hide()
+		desktop.get_node('MioDb').hide()
+		desktop.get_node('CompresZoo').hide()
+		desktop.get_node('TodoList').hide()
+		desktop.get_node('Taskbar').hide()
+	else:
+		_push_initial_emails()
 	desktop.email_app_opened.connect(_handle_email_stuff)
 	desktop.opening_email.connect(_handle_email_open)
+	desktop.closing_app.connect(_handle_app_close)
 	add_child(desktop)
-
+	# desktop.add_red_tint_mild()
+	# await get_tree().create_timer(2).timeout 
+	# desktop.panic_time()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not _intro_text_done and desktop.terminal_ready:
-		# _intro_text()
+		_intro_text()
 		_intro_text_done = true
+	# desktop.fade_to_black()

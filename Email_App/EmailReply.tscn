@@ -1,21 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4kt43bnpyypi"]
+[gd_scene load_steps=11 format=3 uid="uid://d4kt43bnpyypi"]
 
 [ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="1_2y422"]
 [ext_resource type="Script" path="res://Email_App/email_reply.gd" id="1_kbp7h"]
 [ext_resource type="PackedScene" uid="uid://dh821033oh3jw" path="res://Email_App/EmailOptions.tscn" id="3_ous7x"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m86v5"]
-bg_color = Color(0.25098, 0.25098, 0.25098, 1)
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 20
-expand_margin_left = 6.0
-expand_margin_top = 30.0
-expand_margin_right = 6.0
-expand_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uqo7"]
 bg_color = Color(1, 1, 1, 1)
@@ -38,17 +25,15 @@ grow_begin = 0.0
 grow_end = 20.0
 thickness = 3
 
-[node name="EmailReply" type="Window"]
-title = "Composing Message"
-position = Vector2i(0, 36)
-size = Vector2i(500, 550)
+[node name="EmailReply" type="MarginContainer"]
+offset_top = 36.0
+offset_right = 500.0
+offset_bottom = 586.0
 theme = ExtResource("1_2y422")
-theme_override_styles/embedded_border = SubResource("StyleBoxFlat_m86v5")
 script = ExtResource("1_kbp7h")
 
 [node name="TextureRect" type="Panel" parent="."]
-offset_right = 500.0
-offset_bottom = 550.0
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6uqo7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]

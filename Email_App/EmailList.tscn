@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dw1naydjfvjb5"]
+[gd_scene load_steps=15 format=3 uid="uid://dw1naydjfvjb5"]
 
 [ext_resource type="Script" path="res://Email_App/EmailList.gd" id="1_7kebi"]
 [ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="2_q6513"]
@@ -12,23 +12,22 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmhg0"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5xhs"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6cka"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tf0a2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jo4c8"]
 
-[node name="EmailList" type="Window"]
-size = Vector2i(350, 350)
-content_scale_aspect = 1
-content_scale_factor = 0.66
-theme_override_colors/title_color = Color(0.648488, 0.648488, 0.648488, 1)
-theme_override_colors/title_outline_modulate = Color(0.82948, 0.82948, 0.82948, 1)
+[node name="EmailList" type="MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+offset_right = 353.0
+offset_bottom = 321.0
 script = ExtResource("1_7kebi")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_right = 766.0
-offset_bottom = 149.0
+layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
@@ -42,12 +41,13 @@ layout_mode = 2
 [node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_k5xhs")
 
 [node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_q6513")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 36
 text = "Inbox"
 horizontal_alignment = 1
 
@@ -57,6 +57,7 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_d6cka")
 
 [node name="LeftPage" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("3_shclr")
 texture_pressed = ExtResource("4_v5ne1")
@@ -69,6 +70,7 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_tf0a2")
 
 [node name="RightPage" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("6_jn8cc")
 texture_pressed = ExtResource("7_muqjc")
@@ -79,6 +81,14 @@ texture_disabled = ExtResource("8_wqv6q")
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_jo4c8")
+
+[node name="EmailScroll" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 2
+
+[node name="ListVBox" type="VBoxContainer" parent="VBoxContainer/EmailScroll"]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="EmailEntry0" parent="VBoxContainer" instance=ExtResource("9_c3p3g")]
 visible = false
@@ -104,7 +114,6 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/LeftPage" to="." method="_on_left_page_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/RightPage" to="." method="_on_right_page_pressed"]
 [connection signal="spawn_email_entry" from="VBoxContainer/EmailEntry0" to="." method="_handle_spawn_email_attempt"]

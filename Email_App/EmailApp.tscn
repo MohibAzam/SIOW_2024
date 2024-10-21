@@ -1,87 +1,62 @@
-[gd_scene load_steps=9 format=3 uid="uid://cesjt3ij51f6"]
+[gd_scene load_steps=6 format=3 uid="uid://cesjt3ij51f6"]
 
-[ext_resource type="Theme" uid="uid://dn3yugwq0ahwd" path="res://UI font.tres" id="1_rs1ia"]
 [ext_resource type="Script" path="res://Email_App/email_app.gd" id="2_368fd"]
 [ext_resource type="FontFile" uid="uid://d3ilcw8ty32mm" path="res://Fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf" id="3_r64xr"]
 [ext_resource type="Texture2D" uid="uid://bgchtc6bn378s" path="res://OS_Core/OS_Icons/Icon_Assets/reply_icon_new_smol.png" id="4_3mx3g"]
 [ext_resource type="FontFile" uid="uid://rf455wpgq5yc" path="res://Fonts/IBM_Plex_Sans/IBMPlexSans-Bold.ttf" id="5_w8xff"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m86v5"]
-bg_color = Color(0.25098, 0.25098, 0.25098, 1)
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 20
-expand_margin_left = 2.0
-expand_margin_top = 26.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uqo7"]
-bg_color = Color(0.941176, 0.941176, 0.941176, 1)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ep5sl"]
 
-[node name="EmailViewer" type="Window"]
-position = Vector2i(0, 36)
-size = Vector2i(400, 300)
-theme = ExtResource("1_rs1ia")
-theme_override_styles/embedded_border = SubResource("StyleBoxFlat_m86v5")
-script = ExtResource("2_368fd")
-
-[node name="TextureRect" type="Panel" parent="."]
+[node name="EmailViewer" type="MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
 offset_right = 400.0
 offset_bottom = 300.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_6uqo7")
+script = ExtResource("2_368fd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="VSeparator2" type="VSeparator" parent="TextureRect/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ep5sl")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Subject" type="Label" parent="TextureRect/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Subject" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "This is a sample subject"
 
-[node name="Sender" type="Label" parent="TextureRect/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Sender" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_r64xr")
 text = "From: Test Sender"
 
-[node name="VSeparator" type="VSeparator" parent="TextureRect/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ep5sl")
 
-[node name="CenterContainer" type="CenterContainer" parent="TextureRect/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="ReplyButton" type="TextureButton" parent="TextureRect/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer"]
+[node name="ReplyButton" type="TextureButton" parent="VBoxContainer/MarginContainer/HBoxContainer/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture_normal = ExtResource("4_3mx3g")
 
-[node name="Replied" type="Label" parent="TextureRect/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer"]
+[node name="Replied" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/CenterContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -89,43 +64,30 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_w8xff")
 text = "Replied"
 
-[node name="Separator" type="HSeparator" parent="TextureRect/VBoxContainer"]
+[node name="Separator" type="HSeparator" parent="VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="TextureRect/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="TextureRect/VBoxContainer/MarginContainer2"]
-custom_minimum_size = Vector2(390, 300)
+[node name="ScrollContainer2" type="ScrollContainer" parent="VBoxContainer/MarginContainer2"]
 layout_mode = 2
 
-[node name="Body" type="Label" parent="TextureRect/VBoxContainer/MarginContainer2/ScrollContainer2"]
+[node name="Body" type="Label" parent="VBoxContainer/MarginContainer2/ScrollContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 300)
+custom_minimum_size = Vector2(390, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
-text = "To You,
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-This is a sample email. This is a sample email. 
-This is a sample email. 
-This is a sample email. 
-This is a sample email. 
-This is a sample email. 
-This is a sample email. 
-This is a sample email. 
-This is a sample email. 
-This is a sample email. 
-
-
-Best,
-Matt
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 "
 autowrap_mode = 3
 
-[connection signal="close_requested" from="." to="." method="_on_close_requested"]
-[connection signal="pressed" from="TextureRect/VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/ReplyButton" to="." method="_on_reply_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/CenterContainer/ReplyButton" to="." method="_on_reply_button_pressed"]

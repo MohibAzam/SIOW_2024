@@ -15,14 +15,10 @@ signal grown
 signal ready_for_use
 
 func _handle_write_text_kwargs(kwargs):
-	if not ('specific_timers' in kwargs):
-		kwargs['specific_timers'] = {}
-	if not ('textbox_ind' in kwargs):
-		kwargs['textbox_ind'] = 0
-	if not ('font_size' in kwargs):
-		kwargs['font_size'] = 0
-	if not ('reset' in kwargs):
-		kwargs['reset'] = true
+	if not ('specific_timers' in kwargs): kwargs['specific_timers'] = {}
+	if not ('textbox_ind' in kwargs): kwargs['textbox_ind'] = 0
+	if not ('font_size' in kwargs): kwargs['font_size'] = 0
+	if not ('reset' in kwargs): kwargs['reset'] = true
 	return kwargs
 
 func write_text(given_text, base_timer=2, init_kwargs={}):
@@ -33,18 +29,14 @@ func write_text(given_text, base_timer=2, init_kwargs={}):
 		curr_text = ""
 		curr_text_ind = 0
 		buffered_text = given_text
-	else:
-		buffered_text += given_text
+	else: buffered_text += given_text
 	print(buffered_text)
 	for i in range(len(curr_text) + len(given_text)):
-		if i in kwargs['specific_timers']:
-			write_speed_dict[i] = kwargs['specific_timers'][i]
-		else:
-			write_speed_dict[i] = base_timer
+		if i in kwargs['specific_timers']: write_speed_dict[i] = kwargs['specific_timers'][i]
+		else: write_speed_dict[i] = base_timer
 	_write_mode = true
 	curr_delta = 0
-	if kwargs['font_size'] > 0:
-		$VBox/Text.set("theme_override_font_sizes/font_size", kwargs['font_size'])
+	if kwargs['font_size'] > 0: $VBox/Text.set("theme_override_font_sizes/font_size", kwargs['font_size'])
 
 func _grow_out() -> void:
 	$HBoxContainer2.scale.x = 0

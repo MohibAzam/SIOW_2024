@@ -13,7 +13,7 @@ border_color = Color(0.894118, 0.894118, 0.894118, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gtdyj"]
 
 [node name="EmailEntry" type="Panel"]
-custom_minimum_size = Vector2(350, 72)
+custom_minimum_size = Vector2(400, 72)
 offset_right = 320.0
 offset_bottom = 50.0
 theme = ExtResource("1_oc0dw")
@@ -21,11 +21,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_3jngi")
 script = ExtResource("1_e520s")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(350, 72)
+custom_minimum_size = Vector2(400, 72)
 layout_mode = 0
-offset_right = 350.0
+offset_right = 400.0
 offset_bottom = 72.0
-alignment = 1
 
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
 custom_minimum_size = Vector2(8, 0)
@@ -33,23 +32,27 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_gtdyj")
 
 [node name="Sender" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_bejfk")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Sample Sender"
 vertical_alignment = 1
+text_overrun_behavior = 3
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
-custom_minimum_size = Vector2(24, 0)
+custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_gtdyj")
 
 [node name="Subject" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
-text = "Sample Subject"
+theme_override_font_sizes/font_size = 18
+text = "Sample"
+text_overrun_behavior = 4
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

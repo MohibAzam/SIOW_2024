@@ -24,6 +24,7 @@ GlobalVars="*res://global_vars.gd"
 [display]
 
 window/size/resizable=false
+window/per_pixel_transparency/allowed=true
 
 [editor]
 

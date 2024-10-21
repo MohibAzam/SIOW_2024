@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmogmp87dop3c"]
+[gd_scene load_steps=8 format=3 uid="uid://cmogmp87dop3c"]
 
 [ext_resource type="Script" path="res://OS_Core/taskbar.gd" id="1_1feri"]
 [ext_resource type="FontFile" uid="uid://c3frmu4mjki82" path="res://Fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf" id="1_k5pfm"]
+[ext_resource type="Texture2D" uid="uid://cntfss5xje3sq" path="res://OS_Core/OtherAssets/sun2.png" id="2_4q4lv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d61b"]
 bg_color = Color(0.862745, 0.862745, 0.862745, 1)
@@ -25,9 +26,10 @@ shadow_size = 4
 script = ExtResource("1_1feri")
 
 [node name="TopPanel" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(1152, 0)
+custom_minimum_size = Vector2(1440, 0)
 offset_right = 1152.0
-offset_bottom = 26.0
+offset_bottom = 40.0
+scale = Vector2(0.8, 0.8)
 theme_override_styles/panel = SubResource("StyleBoxFlat_3d61b")
 
 [node name="CenterContainer" type="CenterContainer" parent="TopPanel"]
@@ -36,18 +38,18 @@ layout_mode = 2
 [node name="HBox" type="HBoxContainer" parent="TopPanel/CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TopPanel/CenterContainer/HBox"]
+[node name="TimeIcon" type="TextureRect" parent="TopPanel/CenterContainer/HBox"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_k5pfm")
-text = "File"
+texture = ExtResource("2_4q4lv")
 
 [node name="VSeparator" type="VSeparator" parent="TopPanel/CenterContainer/HBox"]
 custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8bpbr")
 
-[node name="Label4" type="Label" parent="TopPanel/CenterContainer/HBox"]
+[node name="Title" type="Label" parent="TopPanel/CenterContainer/HBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_k5pfm")
@@ -71,6 +73,7 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_4obrc")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 offset_left = 1.0
 offset_top = 28.0
 offset_right = 2.0

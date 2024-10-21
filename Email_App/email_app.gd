@@ -1,4 +1,4 @@
-extends Window
+extends MarginContainer
 
 var subject = "" # Subject of the email
 var sender = "" # Email's sender

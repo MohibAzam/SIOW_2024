@@ -7,7 +7,7 @@ var read_flag = false # Whether or not the email has been read
 var replied_flag = false # Whether or not you've replied to the email
 var mouse_on = false
 
-signal spawn_email_entry(subject, sender, body, replied_flag)
+signal spawn_email_entry(subject, sender, body, replied_flag, read_flag)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	if read_flag:
 		self.add_theme_color_override("bg_color", Color(0.75, 0.75, 0.75)) 
 	if mouse_on and Input.is_action_just_pressed("MouseClick"):
-		spawn_email_entry.emit(subject, sender, body, replied_flag)
+		spawn_email_entry.emit(subject, sender, body, replied_flag, read_flag)
 		read_flag = true
 		
 

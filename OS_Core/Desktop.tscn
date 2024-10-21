@@ -1,4 +1,4 @@
-[gd_scene load_steps=212 format=3 uid="uid://ijb5bnqad4j1"]
+[gd_scene load_steps=213 format=3 uid="uid://ijb5bnqad4j1"]
 
 [ext_resource type="Script" path="res://OS_Core/desktop.gd" id="1_lktrm"]
 [ext_resource type="PackedScene" uid="uid://cmogmp87dop3c" path="res://OS_Core/Taskbar.tscn" id="2_pjjlg"]
@@ -207,6 +207,7 @@
 [ext_resource type="Texture2D" uid="uid://814posv8453e" path="res://OS_Core/DesktopOverlays/Gray/8/48.png" id="170_p2osg"]
 [ext_resource type="Texture2D" uid="uid://c140ddskcbwbu" path="res://OS_Core/DesktopOverlays/Gray/8/49.png" id="171_a6r15"]
 [ext_resource type="Texture2D" uid="uid://cql5kx8bm3vft" path="res://Chapter1/Sprites/white_circle.png" id="206_pwscy"]
+[ext_resource type="PackedScene" uid="uid://d1ey7pqw72bfv" path="res://OS_Core/panic_circle.tscn" id="208_asaeg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_phdeo"]
 animations = [{
@@ -831,18 +832,19 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4hvo1"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jtnd"]
-bg_color = Color(0.392157, 0, 0, 0)
+bg_color = Color(0.960784, 0.85098, 0.85098, 0.372549)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dwwpg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q55kw"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52mv5"]
+bg_color = Color(0.956863, 0.941176, 0.941176, 0.627451)
 
 [node name="Desktop" type="Node2D"]
 script = ExtResource("1_lktrm")
 
 [node name="Taskbar" parent="." instance=ExtResource("2_pjjlg")]
-visible = false
 
 [node name="StaticOverlay" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -852,15 +854,9 @@ animation = &"Set3"
 frame_progress = 0.123983
 centered = false
 
-[node name="PanicOverlay" type="Panel" parent="."]
-visible = false
-custom_minimum_size = Vector2(1152, 658)
-offset_right = 1152.0
-offset_bottom = 658.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_4hvo1")
-
 [node name="RedTint" type="Panel" parent="."]
 visible = false
+z_index = 1
 custom_minimum_size = Vector2(1152, 648)
 offset_right = 40.0
 offset_bottom = 40.0
@@ -872,7 +868,7 @@ z_index = 1
 custom_minimum_size = Vector2(1152, 658)
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_dwwpg")
+theme_override_styles/panel = SubResource("StyleBoxFlat_q55kw")
 
 [node name="Email" parent="." instance=ExtResource("2_rromg")]
 visibility_layer = 4
@@ -886,7 +882,7 @@ position = Vector2(4, 152)
 position = Vector2(8, 264)
 
 [node name="AiTerminal" parent="." instance=ExtResource("4_li2xp")]
-z_index = 14
+z_index = 4
 position = Vector2(761, 40)
 
 [node name="TodoList" parent="." instance=ExtResource("6_4x4g4")]
@@ -900,6 +896,28 @@ visibility_layer = 8
 position = Vector2(-939, -268)
 
 [node name="CircleHighlight" type="Sprite2D" parent="."]
-visible = false
 z_index = -1
+position = Vector2(894, 163)
 texture = ExtResource("206_pwscy")
+
+[node name="PanicCircle" parent="." instance=ExtResource("208_asaeg")]
+visible = false
+z_index = 11
+offset_left = 477.0
+offset_top = 91.0
+offset_right = 552.0
+offset_bottom = 166.0
+
+[node name="PanicOverlay" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 30
+z_as_relative = false
+custom_minimum_size = Vector2(1152, 658)
+offset_right = 1152.0
+offset_bottom = 658.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_52mv5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+visible = false

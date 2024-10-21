@@ -1,6 +1,7 @@
 extends Node2D
 
 var curr_scene
+var ch1_template
 
 func _handle_begin():
 	var setup_screen = load("res://Intro/TitleScreen.tscn")
@@ -25,12 +26,20 @@ func _start_ch1_transition():
 	curr_scene.show()
 	curr_scene.done_transition.connect(_start_chapter_1)
 	
-	# TODO: Play the music associated with it
-		  
-	pass
+	# Preload Chapter 1 to save some time	
+	ch1_template = preload("res://Chapter1/Chapter1Intro.tscn")
+	
 	
 func _start_chapter_1():
-	pass
+	var new_scene = ch1_template.instantiate()
+	add_child(new_scene)
+	remove_child(curr_scene)
+	curr_scene.call_deferred("queue_free")
+	curr_scene = new_scene
+	curr_scene.show()
+	# curr_scene.done_transition.connect(_start_chapter_2)
+	
+# func _start_chapter
 
 func _handle_title_menus(selection):
 	if selection == "Exit":
@@ -53,7 +62,7 @@ func _handle_title_menus(selection):
 		curr_scene.call_deferred("queue_free")
 		curr_scene = new_scene
 		curr_scene.show()
-		curr_scene.setup_done.connect(_start_chapter_1)
+		curr_scene.setup_done.connect(_start_ch1_transition)
 		pass
 	
 func _goto_title():

@@ -1,8 +1,7 @@
-extends Window
+extends MarginContainer
 
 # Emit this once we're ready to start writing a message. It will also note 
 # the largest number of options the textbox needs to handle 
-signal start_writing(largest_option_num: int)
 signal deleting(text)
 signal doing_something_w_attach
 signal attaching

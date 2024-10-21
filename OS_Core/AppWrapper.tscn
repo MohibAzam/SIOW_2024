@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1c2suygco3n2"]
+
+[ext_resource type="Script" path="res://OS_Core/app_wrapper.gd" id="1_fsujm"]
+[ext_resource type="Texture2D" uid="uid://brd8nn6spfe5e" path="res://ToDo_App/Assets/close_icon_smol.png" id="2_v0teg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vg753"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 40
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.410623, 0.410623, 0.410622, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jyfdb"]
+
+[node name="AppWrapper" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 200.0
+script = ExtResource("1_fsujm")
+
+[node name="Contents" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+offset_right = 20.0
+offset_bottom = 50.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_vg753")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 162.0
+offset_bottom = 36.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+
+[node name="HBox" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Close" type="TextureButton" parent="MarginContainer/HBox"]
+layout_mode = 2
+texture_normal = ExtResource("2_v0teg")
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jyfdb")
+
+[node name="Title" type="Label" parent="MarginContainer/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "testestteststes"
+
+[connection signal="pressed" from="MarginContainer/HBox/Close" to="." method="_on_texture_button_pressed"]
